@@ -1,5 +1,6 @@
-# median-filter
-Median Filter cpp
+
+Here is it basic Cpp smoothin codes
+function {
 
 #include<iostream>
 #include<opencv2/imgproc/imgproc.hpp>
@@ -20,17 +21,14 @@ int insertionSort(int med[])
 	}
 	return med[4];
 }
-
 int main() {
-
 	Mat source, mean9, mean16, median;
-	source = imread("C:\\Users\\OrayKT\\Documents\\Visual Studio 2015\\Projects\\OpenCV FW\\Images\\median.png", CV_LOAD_IMAGE_GRAYSCALE);
+	source = imread("C:\\Users\\Oray\\Documents\\Visual Studio 2015\\Projects\\Project1\\Resimler\\median.png", CV_LOAD_IMAGE_GRAYSCALE);
 	if (!source.data) {
-		cout << "Image not loaded" << endl;	
+		cout << "Resim yüklenmedi" << endl;	 // Img not loaded
 		return -1;
 	}
 	median = source.clone();
-	
 	for (int x = 1; x < source.rows - 1; x++) {
 		for (int y = 1; y < source.cols - 1; y++) {
 			int kernelMedian[9], k=0;
@@ -47,6 +45,5 @@ int main() {
 	imshow("Median", median);
 	waitKey(0);
 	return 0;
-
-
+}
 }
